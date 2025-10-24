@@ -100,7 +100,7 @@ export default function Navbar() {
               onMouseLeave={() => phase === 'deleting' && setPhase('idle')}
             >
               <span style={{ visibility: 'hidden', whiteSpace: 'nowrap' }}>{'<Cyphound />'}</span>
-              <span style={{ position: 'absolute', left: 0, top: 0 }}>
+              <span style={{ position: 'absolute', left: 0, top: 0, whiteSpace: 'nowrap' }}>
                 {displayText}
                 {(phase === 'deleting' || phase === 'writing') && <span className="animate-pulse">|</span>}
               </span>

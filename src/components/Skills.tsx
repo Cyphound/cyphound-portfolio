@@ -1,8 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { useInView } from 'motion/react'
-import React, { useRef } from 'react'
+import React from 'react'
 import { IconType } from 'react-icons'
 import { FaReact, FaGitAlt, FaNodeJs, FaPython } from "react-icons/fa";
 import { TbBrandNextjs, TbBrandTailwind, TbBrandVscode, TbBrandFigma, TbBrandAndroid } from "react-icons/tb";
@@ -14,9 +13,6 @@ import { BiCodeAlt } from "react-icons/bi";
  * Muestra las tecnologías y herramientas que maneja
  */
 export default function Skills() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
-
   const skillIcons: { [key: string]: IconType } = {
     'React': FaReact,
     'Next.js': TbBrandNextjs,
@@ -59,12 +55,13 @@ export default function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-32 px-4 sm:px-6 lg:px-8" ref={ref}>
+    <section id="skills" className="py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -78,9 +75,10 @@ export default function Skills() {
             <motion.div
               key={category.title}
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              className="bg-darker p-6 rounded-lg border border-slate-700 hover:border-primary transition-all glow-on-hover"
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.4, delay: categoryIndex * 0.08, ease: "easeOut" }}
+              className="bg-darker p-6 rounded-lg border border-slate-700 hover:border-primary glow-on-hover"
             >
               <div className={`w-12 h-1 bg-gradient-to-r ${category.color} mb-4`}></div>
               <h3 className="text-xl font-bold mb-4">{category.title}</h3>
@@ -89,8 +87,9 @@ export default function Skills() {
                   <motion.li
                     key={skill}
                     initial={{ opacity: 0, x: -10 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.3, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.3, delay: categoryIndex * 0.08 + skillIndex * 0.03, ease: "easeOut" }}
                     className="text-slate-300 flex items-center"
                   >
                     {skillIcons[skill] ? (

@@ -149,9 +149,9 @@ export default function Contact() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                    className={`flex items-center space-x-3 p-4 bg-slate-800 rounded-lg hover:bg-slate-700 transition-all ${social.color} hover:scale-105`}
+                    className={`flex items-center space-x-3 p-4 bg-slate-800 rounded-lg hover:bg-slate-700 ${social.color} hover:scale-105`}
                   >
-                    <social.icon size={28} className="sm:w-8 sm:h-8" />
+                    <span className="hidden sm:inline"><social.icon size={28} className="sm:w-8 sm:h-8" /></span>
                     <span className="font-medium">{social.name}</span>
                   </motion.a>
                 ))}

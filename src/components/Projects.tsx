@@ -1,19 +1,13 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { useInView } from 'motion/react'
-import { useRef } from 'react'
 import { ExternalLink, Github } from 'lucide-react'
-import { div } from 'motion/react-client'
 
 /**
  * Sección de Proyectos
  * Muestra los proyectos destacados del portafolio
  */
 export default function Projects() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-
   const projects = [
     {
       title: 'NuamTax',
@@ -38,12 +32,13 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" className="py-32 px-4 sm:px-6 lg:px-8 bg-dark/50" ref={ref}>
+    <section id="projects" className="py-32 px-4 sm:px-6 lg:px-8 bg-dark/50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -57,9 +52,10 @@ export default function Projects() {
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-darker rounded-lg overflow-hidden border border-slate-700 hover:border-primary transition-all glow-on-hover"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: index * 0.15, ease: "easeOut" }}
+              className="bg-darker rounded-lg overflow-hidden border border-slate-700 hover:border-primary glow-on-hover"
             >
               <div className="grid md:grid-cols-2">
                 {/* Imagen del proyecto */}
@@ -67,7 +63,7 @@ export default function Projects() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover md:object-contain rounded-lg transition-all duration-300"
+                    className="w-full h-full object-cover md:object-contain rounded-lg duration-300"
                     style={{ maxHeight: '100%', maxWidth: '100%' }}
                   />
                 </div>
@@ -80,7 +76,8 @@ export default function Projects() {
                     
                     {/* Tecnologías */}
                     <div className="flex flex-wrap gap-2 mb-6">
-                      {project.technologies.map((tech) => (<span
+                      {project.technologies.map((tech) => (
+                        <span
                           key={tech}
                           className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm border border-primary/30"
                         >
@@ -89,26 +86,24 @@ export default function Projects() {
                       ))}
                     </div>
                   </div>
-
                   {/* Enlaces */}
                   <div className="flex space-x-4">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-lg"
+                      className="flex items-center space-x-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg duration-200 transform hover:scale-105 hover:shadow-lg"
                     >
-                      <Github size={20} />
+                      <span className="hidden sm:inline"><Github size={20} /></span>
                       <span>Código</span>
                     </a>
-                    
                     <a
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 px-4 py-2 bg-primary hover:bg-primary/80 rounded-lg transition-all duration-200 transform hover:scale-105 hover:shadow-lg"
+                      className="flex items-center space-x-2 px-4 py-2 bg-primary hover:bg-primary/80 rounded-lg duration-200 transform hover:scale-105 hover:shadow-lg"
                     >
-                      <ExternalLink size={20} />
+                      <span className="hidden sm:inline"><ExternalLink size={20} /></span>
                       <span>Demo</span>
                     </a>
                   </div>

@@ -1,8 +1,6 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { useInView } from 'motion/react'
-import { useRef } from 'react'
 import { GraduationCap, Code2, Smartphone } from 'lucide-react'
 
 /**
@@ -10,9 +8,6 @@ import { GraduationCap, Code2, Smartphone } from 'lucide-react'
  * Presenta información personal y académica
  */
 export default function About() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
-
   const highlights = [
     {
       icon: GraduationCap,
@@ -32,12 +27,13 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-32 px-4 sm:px-6 lg:px-8 bg-dark/50" ref={ref}>
+    <section id="about" className="py-32 px-4 sm:px-6 lg:px-8 bg-dark/50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
@@ -51,9 +47,10 @@ export default function About() {
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-darker p-6 rounded-lg border border-slate-700 hover:border-primary transition-all glow-on-hover"
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+              className="bg-darker p-6 rounded-lg border border-slate-700 hover:border-primary glow-on-hover"
             >
               <item.icon className="w-12 h-12 text-primary mb-4" />
               <h3 className="text-xl font-bold mb-2">{item.title}</h3>
@@ -64,8 +61,9 @@ export default function About() {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
           className="mt-16 text-center max-w-3xl mx-auto"
         >
           <p className="text-lg text-slate-300 leading-relaxed">

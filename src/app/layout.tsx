@@ -4,7 +4,7 @@ import '@/components/BackgroundAnimation'
 import BackgroundAnimation from '@/components/BackgroundAnimation'
 
 export const metadata: Metadata = {
-  title: 'Cyphound - Bayron Gómez | Portafolio',
+  title: 'Cyphound | Portafolio',
   description: 'Portafolio profesional de Bayron Gómez (Cyphound), estudiante de Ingeniería Informática especializado en desarrollo web y móvil.',
   keywords: 'desarrollo web, react, nextjs, flutter, desarrollador, portafolio',
 }

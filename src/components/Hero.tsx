@@ -140,12 +140,12 @@ export default function Hero() {
           `}</style>
         </motion.div>
 
-        {/* Columna derecha - Terminal */}
+        {/* Columna derecha - Terminal (solo en md o mayor) */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="h-[350px] md:h-[450px] lg:h-[500px]"
+          className="hidden md:block h-[350px] md:h-[450px] lg:h-[500px]"
         >
           <Terminal />
         </motion.div>
