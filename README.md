@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Cyphound Portfolio 🚀
 
-First, run the development server:
+Portafolio personal desarrollado con Next.js y Tailwind CSS por Bayron Gómez (Cyphound).
+Incluye presentación, habilidades, proyectos destacados y formulario de contacto.
+
+## ¿Qué encontrarás?
+
+- Página principal con secciones de presentación, sobre mí, habilidades, proyectos y contacto.
+- Animaciones modernas y diseño responsivo.
+- Proyectos con enlaces a demo y código.
+- Formulario de contacto (requiere integración para envío real de emails).
+
+## Puesta en marcha
+
+1. Instala las dependencias:
+
+```bash
+npm install
+# o
+yarn install
+```
+
+2. Inicia el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
+# o
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura de rutas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/` : Página principal (Hero, Sobre mí, Habilidades, Proyectos, Contacto)
+- Las secciones se navegan por scroll o desde la barra de navegación:
+	- `#about` : Sobre mí
+	- `#skills` : Habilidades
+	- `#projects` : Proyectos
+	- `#contact` : Contacto
 
-## Learn More
+## Tecnologías usadas
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js](https://nextjs.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Lucide Icons](https://lucide.dev)
+- Animaciones con [Framer Motion](https://www.framer.com/motion/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Personalización
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Puedes editar los componentes en `src/components/` para modificar contenido, estilos o agregar nuevos proyectos.
 
-## Deploy on Vercel
+## Autor
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Bayron Gómez (Cyphound) ☕
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+¡Disfruta el código y siéntete libre de personalizarlo! ❤️

@@ -1,26 +1,37 @@
+/* Importamos Tailwind 4. 
+  Esto incluye automáticamente preflight (reseteo), base, componentes y utilidades.
+  ¡No necesitas un tailwind.config.js para la configuración básica!
+*/
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  body {
+    @apply bg-gray-950 text-gray-100 font-sans antialiased;
+    scroll-behavior: smooth;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Clases para los toques de acento de color */
+  .text-accent {
+    @apply text-sky-400;
+  }
+  .bg-accent {
+    @apply bg-sky-600;
+  }
+  .border-accent {
+    @apply border-sky-500;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Scrollbar personalizada para un look más tech */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-sky-700 rounded-md;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-sky-600;
 }
