@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Background />
         <NavBar />
 
-        <main className="relative mx-auto w-full max-w-6xl px-5 pt-40 sm:pt-24 pb-24">
+        <main className="relative mx-auto w-full max-w-6xl px-5 pt-28 sm:pt-24 pb-24">
           {children}
         </main>
       </body>

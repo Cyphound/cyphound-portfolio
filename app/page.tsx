@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <main className="mx-auto max-w-5xl px-5 pb-32 space-y-32">
       {/* Sección Hero: Bienvenida e Introducción */}
-      <div className="pt-10">
+      <div className="sm:pt-10">
         <Hero />
       </div>
 
