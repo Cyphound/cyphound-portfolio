@@ -37,7 +37,7 @@ Sigue estos pasos para correr el proyecto localmente:
 1.  **Clonar el repositorio**:
     ```bash
     git clone https://github.com/Cyphound/cyphound-portfolio
-    cd portfolio
+    cd cyphound-portfolio
     ```
 
 2.  **Instalar dependencias**:
